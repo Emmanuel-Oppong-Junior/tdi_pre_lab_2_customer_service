@@ -22,12 +22,18 @@ jobs:
           java-version: '21'
           distribution: 'temurin'
           cache: maven
+      # more controlled jacoco config
+      #      - name: Run Maven tests
+      #        run: mvn --batch-mode test
+      #
+      #      - name: Generate JaCoCo report
+      #        run: mvn --batch-mode jacoco:report
+      #
+      #      - name: Check jacoco thresholds
+      #        run: mvn --batch-mode jacoco:check
 
-      - name: Run Maven tests
-        run: mvn --batch-mode test
-
-      - name: Generate JaCoCo report
-        run: mvn --batch-mode jacoco:report
+      - name: Verify with Maven
+        run: mvn --batch-mode verify
 
       - name: Upload JaCoCo report
         if: always()

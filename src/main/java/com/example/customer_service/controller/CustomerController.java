@@ -47,7 +47,9 @@ public class CustomerController {
     }
 
     @GetMapping
-    public ResponseEntity<List<CustomerDto>> getAllCustomers(@RequestHeader(value = "X-Username", required = false) String username) {
+    public ResponseEntity<List<CustomerDto>> getAllCustomers(
+            @RequestHeader(value = "X-Username", required = false) String username)  //get data passed from gateway
+    {
         logger.info("username {}", username);
         List<CustomerDto> customers = customerService.getAllCustomers();
         return ResponseEntity.ok(customers);

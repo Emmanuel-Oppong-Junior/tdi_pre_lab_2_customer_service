@@ -53,8 +53,6 @@ class CustomerServiceTest {
         updateCustomerDto.setName("Jane Doe");
         updateCustomerDto.setEmail("jane@example.com");
         updateCustomerDto.setPhone("0987654321");
-
-        CustomerDto customerDto = new CustomerDto(1L, "John Doe", "john@example.com", "1234567890");
     }
 
     @Test
@@ -134,8 +132,8 @@ class CustomerServiceTest {
         // Assert
         assertNotNull(result);
         assertEquals("Jane Doe", result.name());
-        assertEquals("john@example.com", result.email()); // Should remain unchanged
-        assertEquals("1234567890", result.phone()); // Should remain unchanged
+        assertEquals("john@example.com", result.email());
+        assertEquals("1234567890", result.phone());
         verify(customerRepository).findById(1L);
         verify(customerRepository).save(any(Customer.class));
     }
