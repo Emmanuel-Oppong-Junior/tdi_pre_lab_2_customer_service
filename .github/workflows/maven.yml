@@ -29,6 +29,9 @@ jobs:
       - name: Generate JaCoCo report
         run: mvn --batch-mode jacoco:report
 
+      - name: Check jacoco thresholds
+        run: mvn --batch-mode jacoco:check
+
       - name: Upload JaCoCo report
         if: always()
         uses: actions/upload-artifact@v4
